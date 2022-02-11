@@ -1,0 +1,19 @@
+{
+  "name": "employeetracker",
+  "version": "1.0.0",
+  "description": "my SQL app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Esilfa/employee-tracker.git"
+  },
+  "author": "Estefany Silfa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Esilfa/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/Esilfa/employee-tracker#readme"
+}
