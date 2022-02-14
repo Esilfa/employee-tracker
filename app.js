@@ -98,3 +98,53 @@ async function addNewRole() {
     );
 }
 
+async function updateRole() {
+
+    connection.query("SELECT * FROM employee", async (err, employee) => {
+        const {
+            worker,
+            newrole
+        } = await inquirer.prompt([{
+            type: "list",
+            message: "Choose an employee to update:",
+            name: "worker",
+            choices: () => {
+                return employee.map((employee) => employee.last_name);
+            },
+        },
+        {
+            type: "list",
+            message: "What is this employee's new role?",
+            name: "newrole",
+            choices: () => {
+                return employee.map((employee) => employee.role_id);
+            }
+        }
+        ]);
+        connection.query(
+            "Update employee Set? Where?",
+            [{
+                role_id: newrole,
+            },
+            {
+                last_name: worker,
+            },
+            ],
+            function (err, res) {
+                if (err) throw err;
+                console.log(res.affectedRows + " products updated!\n");
+                console.table(employee);
+                start();
+            }
+        );
+    })
+}
+function printDepartments() {
+    connection.query("SELECT * FROM department", function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        start();
+    });
+}
+
+
