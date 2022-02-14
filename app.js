@@ -65,21 +65,36 @@ async function start() {
             break;
         default:
             connection.end();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
+}
 
+async function addEmployee() {
+    let qry = "SELECT id as value, CONCAT(first_name, ' ', last_name) as name FROM employee"
+    connection.query(qry, async (err, employees) => {
+        qry = "Select id as value, title as name FROM roles"
+        connection.query(qry, async (err, roles) => {
+            const newEmp = await inquirer.prompt(questions.addEmployee(roles, employees));
+            qry = "Insert into role Set?"
+            connection.query(qry, newEmp, function (err) {
+                if (err) throw err;
+                console.log("New employee was added successfully!");
+                start();
+            });
+        })
+    })
+}
+async function addNewRole() {
+    const roleDetails = await inquirer.prompt(addRole)
+    connection.query("Insert into role Set?", {
+        title: roleDetails.titleRole,
+        salary: roleDetails.salary,
+        department_id: roleDetails.departmentIDrole
+    },
+        function (err) {
+            if (err) throw err;
+            console.log("New department was added successfully!");
+            start();
+        }
+    );
 }
 
