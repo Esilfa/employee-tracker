@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/Esilfa/employee-tracker#readme",
   "dependencies": {
+    "asciiart-logo": "^0.2.6",
     "console.table": "^0.10.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
     "inquirer": "^8.2.0",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "sql-formatter": "^4.0.2"
   }
 }
