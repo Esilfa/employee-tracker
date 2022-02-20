@@ -4,7 +4,9 @@
   "description": "my SQL app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "seed": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
     "inquirer": "^8.2.0",
     "mysql2": "^2.3.3",
     "sql-formatter": "^4.0.2"
+  },
+  "devDependencies": {
+    "mysql-db-seed": "0.0.4"
   }
 }
