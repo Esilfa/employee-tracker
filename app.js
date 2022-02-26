@@ -120,7 +120,7 @@ function viewRoles() {
 };
 
 function addEmployee() {
-    connection.query('SELECT * FROM role', function (err, res) {
+    connection.query('SELECT * FROM roles', function (err, res) {
         if (err) throw err;
         inquirer
             .prompt([
